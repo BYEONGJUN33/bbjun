@@ -7,25 +7,15 @@ import { ContactSection } from "@/components/contact-section"
 
 export default function Home() {
   return (
-    <main className="h-dvh overflow-y-auto snap-y snap-mandatory">
-      <div className="snap-start snap-always">
-        <HeroSection />
-      </div>
-      <div className="snap-start snap-always">
-        <AboutSection />
-      </div>
-      <div className="snap-start snap-always">
-        <SkillsSection />
-      </div>
-      <div id="projects" className="snap-start snap-always">
+    <main>
+      <HeroSection />
+      <AboutSection />
+      <SkillsSection />
+      <div id="projects">
         <ProjectsSection />
       </div>
-      <div className="snap-start snap-always">
-        <ExperienceSection />
-      </div>
-      <div className="snap-start snap-always">
-        <ContactSection />
-      </div>
+      <ExperienceSection />
+      <ContactSection />
     </main>
   )
 }
