@@ -7,7 +7,7 @@ import { ContactSection } from "@/components/contact-section"
 
 export default function Home() {
   return (
-    <main className="h-dvh overflow-y-auto snap-y snap-mandatory">
+    <main className="h-screen overflow-y-auto snap-y snap-mandatory">
       <div className="snap-start snap-always">
         <HeroSection />
       </div>

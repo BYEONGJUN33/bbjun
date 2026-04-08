@@ -12,7 +12,7 @@ export function HeroSection() {
   }, [])
 
   return (
-    <section className="relative min-h-dvh flex flex-col items-center justify-center overflow-hidden bg-background px-6">
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-background px-6">
       {/* Animated background gradient */}
       <div className="absolute inset-0 overflow-hidden">
         <div 
@@ -161,29 +161,29 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Tech stack floating tags - 데스크톱만 표시 */}
-      <div className="hidden md:block absolute inset-0 pointer-events-none overflow-hidden">
-        <FloatingTag
-          text="React"
-          className="top-[20%] left-[10%]"
+      {/* Tech stack floating tags */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <FloatingTag 
+          text="React" 
+          className="top-[20%] left-[10%]" 
           delayMs={0}
           isVisible={isVisible}
         />
-        <FloatingTag
-          text="TypeScript"
-          className="top-[30%] right-[15%]"
+        <FloatingTag 
+          text="TypeScript" 
+          className="top-[30%] right-[15%]" 
           delayMs={500}
           isVisible={isVisible}
         />
-        <FloatingTag
-          text="Next.js"
-          className="bottom-[30%] left-[15%]"
+        <FloatingTag 
+          text="Next.js" 
+          className="bottom-[30%] left-[15%]" 
           delayMs={1000}
           isVisible={isVisible}
         />
-        <FloatingTag
-          text="Tailwind"
-          className="bottom-[25%] right-[10%]"
+        <FloatingTag 
+          text="Tailwind" 
+          className="bottom-[25%] right-[10%]" 
           delayMs={1500}
           isVisible={isVisible}
         />

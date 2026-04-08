@@ -207,7 +207,7 @@ export function ProjectsSection() {
     <>
       <section 
         ref={sectionRef}
-        className="min-h-dvh flex items-center justify-center bg-background px-6 py-20"
+        className="min-h-screen flex items-center justify-center bg-background px-6 py-20"
       >
         <div className="max-w-5xl mx-auto w-full">
           {/* Section Title */}
