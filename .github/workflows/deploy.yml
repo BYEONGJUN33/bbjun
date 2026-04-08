@@ -20,7 +20,8 @@ jobs:
           script: |
             cd /var/www/bbjun
             git pull origin main
-            npm install --production=false
+            rm -f package-lock.json
+            npm install
             npm run build
             pm2 restart bbjun || pm2 start npm --name "bbjun" -- start
             pm2 save
