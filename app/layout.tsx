@@ -34,7 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className="font-sans antialiased">
+      <body className="font-sans antialiased overflow-hidden">
         {children}
       </body>
     </html>
