@@ -57,7 +57,7 @@ export function HeroSection() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
           </span>
-          <span className="text-sm text-muted-foreground">Available for new opportunities</span>
+          <span className="text-sm text-muted-foreground">Open to opportunities</span>
         </div>
 
         {/* Name */}
@@ -86,9 +86,9 @@ export function HeroSection() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          사용자 경험을 중시하는 프론트엔드 개발자입니다.
+          부트캠프 수료 후 웅진씽크빅 인턴에서 혼자 2개월 만에
           <br className="hidden md:block" />
-          깔끔한 코드와 섬세한 인터랙션으로 가치 있는 제품을 만듭니다.
+          사내 자동화 도구를 기획·개발·배포·인수인계까지 완주한 개발자입니다.
         </p>
 
         {/* CTA Buttons */}
@@ -106,10 +106,13 @@ export function HeroSection() {
           >
             프로젝트 보기
           </Button>
-          <Button 
-            variant="outline" 
-            size="lg" 
+          <Button
+            variant="outline"
+            size="lg"
             className="min-w-[160px] border-border text-foreground hover:bg-secondary transition-all duration-300 hover:scale-105"
+            onClick={() => {
+              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+            }}
           >
             연락하기
           </Button>
@@ -122,7 +125,7 @@ export function HeroSection() {
           }`}
         >
           <a
-            href="https://github.com"
+            href="https://github.com/BYEONGJUN33"
             target="_blank"
             rel="noopener noreferrer"
             className="p-3 rounded-full bg-secondary/50 text-muted-foreground hover:text-foreground hover:bg-secondary transition-all duration-300 hover:scale-110"
@@ -140,7 +143,7 @@ export function HeroSection() {
             <Linkedin className="w-5 h-5" />
           </a>
           <a
-            href="mailto:hello@example.com"
+            href="mailto:bbj6887@gmail.com"
             className="p-3 rounded-full bg-secondary/50 text-muted-foreground hover:text-foreground hover:bg-secondary transition-all duration-300 hover:scale-110"
             aria-label="Email"
           >

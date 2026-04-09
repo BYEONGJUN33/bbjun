@@ -1,7 +1,8 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Github, ExternalLink, X } from "lucide-react"
+import { Github, ExternalLink, X, BookOpen, AlertTriangle, CheckCircle2, ArrowRight, Settings } from "lucide-react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 
 const projects = [
@@ -16,45 +17,130 @@ const projects = [
       "관심사 기반 태그 개인화 큐레이션, 반응형 모바일 최적화",
       "AWS 배포까지 완료, 전체 달성도 85%"
     ],
-    tech: ["React", "Vite", "JavaScript", "HTML/CSS", "TipTap", "Swagger", "MySQL", "AWS", "Spring"],
+    tech: ["React", "Vite", "JavaScript", "HTML/CSS", "TipTap", "Swiper.js", "Context API", "Axios", "AWS", "Spring"],
     github: "https://github.com",
     demo: "",
     role: "팀장 / 프론트엔드 리드 | 3인 팀 프로젝트",
-    period: "2025.10 - 2025.12"
+    period: "2025.10 - 2025.12",
+    images: { pc: "/pc_plog.png", mobile: "/mobile_plog.png" }
   },
   {
     title: "EPUB 마이그레이션 툴",
-    description: "레거시 EPUB 파일의 구조적 노후화 문제를 해결하기 위한 일괄 변환 자동화 툴",
-    fullDescription: "레거시 EPUB 파일의 구조적 노후화 문제를 해결하기 위한 일괄 변환 자동화 툴입니다.",
+    description: "비개발자 컨텐츠팀의 수작업 EPUB 수정 문제를 발견하고, 기획부터 EXE 납품까지 단독으로 해결한 자동화 툴",
+    fullDescription: "IT혁신본부 프론트엔드팀 소속 인턴으로, 코드를 다룰 줄 모르는 컨텐츠 개발팀이 수백 권의 EPUB 전자책을 일일이 수작업으로 수정하거나 외부 인력에 의존하던 문제를 발견했습니다. Chrome 86+ 보안 정책 변경으로 레거시 JavaScript가 일괄 동작 불가 상태가 된 것이 발단이었고, 이를 해결하기 위해 기획부터 배포까지 단독으로 진행했습니다.\n컨텐츠 개발팀과 직접 미팅을 진행하며 실무 환경과 사용 방식을 파악하고, \"pip도 모르는 담당자가 혼자 쓸 수 있어야 한다\"는 피드백을 수렴해 설치 없이 실행되는 EXE 형태로 최종 납품했습니다.",
     achievements: [
-      "Python을 활용해 레거시 코드를 최신 브릿지 코드로 자동 변환하는 마이그레이션 파이프라인 설계",
-      "DRM 해제 APK 이식, 이미지 최적화(용량 절감), AI(Grok) 오답 체크 기능을 단일 툴로 통합",
-      "약 50일간 단독으로 기획·개발·완성, 실무 환경에서 즉시 활용 가능한 수준으로 납품"
+      "수시간 걸리던 수작업을 파일 드래그만으로 수분 내 처리 가능하도록 자동화",
+      "비개발자 담당자가 단독 운영할 수 있는 수준으로 인수인계 완료, 인턴 종료 후 팀 내 지속 운영 중",
+      "PC에서 직접 복호화가 불가능한 ARM 전용 DRM 구조를 ADB 브릿지 아키텍처로 우회 해결",
+      "Python 서버 3개 + ADB + APK를 단일 EXE로 패키징, 설치 없이 바로 실행",
+      "GitHub Actions CI/CD 구축 — 태그 push 한 번으로 자동 빌드·배포",
+      "Groq AI(LLaMA) 연동 오타 검증, WebP 이미지 최적화까지 단일 툴에 통합",
+      "컨텐츠 개발팀과 미팅을 통해 요구사항을 직접 수렴하고 피드백을 즉시 반영"
     ],
-    tech: ["Python", "Flask", "Grok API", "DRM 처리"],
+    tech: ["Python", "Flask", "JavaScript", "HTML/CSS", "Tailwind CSS", "PyInstaller", "GitHub Actions", "Android ADB", "Groq API"],
     github: "https://github.com",
     demo: "",
-    role: "단독 개발 | 웅진씽크빅 인턴십 과제",
-    period: "2026.01 - 2026.03"
+    role: "단독 개발 | 웅진씽크빅 인턴",
+    period: "2026.01 - 2026.03",
+    retrospective: "기획·개발·배포를 혼자 2개월 만에 끝냈습니다. AI 도구를 적극 활용했지만, 실제로 동작하게 만드는 디버깅·설계·판단은 제가 했습니다. \"AI가 코드를 주는 것\"과 \"완성된 도구를 납품하는 것\"의 차이를 실감한 프로젝트입니다."
   },
   {
-    title: "비트코인 자동 트레이딩 봇",
-    description: "반복적인 수동 트레이딩의 불편함을 자동화로 해결한 개인 사이드 프로젝트",
-    fullDescription: "반복적인 수동 트레이딩의 불편함을 자동화로 해결한 개인 사이드 프로젝트입니다.",
+    title: "Binance MA Cross 자동매매 봇",
+    description: "백엔드 자동화 시스템에 실시간 프론트엔드 대시보드를 직접 붙여 운용까지 완성한 풀스택 개인 프로젝트",
+    fullDescription: "바이낸스 거래소 API를 연동한 암호화폐 현물 자동매매 시스템입니다. 이동평균 크로스(MA Cross) 전략으로 매수·매도 신호를 자동 생성하고, 운용 현황을 실시간으로 확인할 수 있는 웹 모니터링 대시보드를 직접 설계·구현했습니다. Oracle Cloud 서버에 배포하여 24시간 무중단으로 운용 중입니다.",
     achievements: [
-      "거래소 API 연동으로 실시간 시세 분석 및 자동 매매 로직 구현",
-      "Oracle Cloud 무료 서버에 배포하여 PC 종료 상태에서도 24시간 자율 운영",
-      "버그 수정 및 전략 튜닝을 반복하며 실제 운영 가능한 수준으로 완성"
+      "실시간 모니터링 대시보드 구현 — Fetch API + setInterval 폴링으로 가격·포지션·수익률·로그를 한 화면에서 실시간 갱신",
+      "Chart.js 기반 캔들 차트 — zoom/pan 플러그인 적용, 최근 200개 캔들 인터랙티브 시각화",
+      "로그 뷰어 UX 개선 — 레벨별(INFO/WARN/ERR) 필터, 키워드 검색, 매수·매도 색상 구분, 스마트 자동 스크롤",
+      "반응형 레이아웃 — CSS Grid + Custom Properties 기반, 모바일~데스크탑 대응",
+      "보안 처리 — 로그인 세션 인증, 브루트포스 방어(5회 실패 시 잠금), 긴급 정지 API 인증",
+      "113개 유닛 테스트 전체 통과 유지, GitHub 커밋 50회 이상"
     ],
-    tech: ["Python", "Oracle Cloud", "거래소 REST API"],
+    tech: ["Python", "Flask", "HTML5", "CSS3", "JavaScript", "Chart.js", "pytest", "Oracle Cloud", "systemd"],
     github: "https://github.com",
     demo: "",
-    role: "개인 프로젝트 | 단독 개발",
-    period: "2026.03"
+    role: "개인 프로젝트 | 기획·설계·개발 전담",
+    period: "2026.03 ~ 진행 중",
+    images: { pc: "/ma_bot.png", mobile: "" }
   }
 ]
 
-type Project = typeof projects[number]
+type Project = typeof projects[number] & {
+  images?: { pc: string; mobile: string | "" }
+  retrospective?: string
+}
+
+function EpubThumbnail({ showFeatures = true }: { showFeatures?: boolean }) {
+  return (
+    <div className="absolute inset-0 bg-[#111318] flex flex-col justify-between p-4 overflow-hidden select-none">
+      {/* Title row */}
+      <div className="flex items-center justify-between">
+        <p className="text-[10px] text-gray-500 font-medium tracking-widest uppercase">
+          사내 자동화 도구
+        </p>
+        {showFeatures && (
+          <p className="text-[10px] text-gray-600 italic">
+            * 사내 정책상 캡처·코드 비공개
+          </p>
+        )}
+      </div>
+
+      {/* Core flow: Problem → Tool → Result */}
+      <div className="flex items-center justify-center gap-2">
+        {/* Before */}
+        <div className="flex flex-col items-center gap-2 flex-1">
+          <div className="w-11 h-11 rounded-xl bg-red-500/10 border border-red-500/25 flex items-center justify-center relative">
+            <BookOpen className="w-5 h-5 text-red-400/80" />
+            <div className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-red-500/90 flex items-center justify-center">
+              <AlertTriangle className="w-2 h-2 text-white" />
+            </div>
+          </div>
+          <div className="text-center">
+            <p className="text-[10px] font-semibold text-gray-300 leading-tight">레거시 EPUB</p>
+            <p className="text-[9px] text-red-400/80 mt-0.5 leading-tight">Chrome 동작 불가</p>
+          </div>
+        </div>
+
+        {/* Arrow + Tool */}
+        <div className="flex flex-col items-center gap-1 shrink-0">
+          <div className="w-9 h-9 rounded-xl bg-blue-500/15 border border-blue-500/30 flex items-center justify-center">
+            <Settings className="w-4 h-4 text-blue-400" />
+          </div>
+          <ArrowRight className="w-3 h-3 text-gray-600" />
+          <p className="text-[8px] text-blue-400/80 tracking-wide whitespace-nowrap">Python 자동화 툴</p>
+        </div>
+
+        {/* After */}
+        <div className="flex flex-col items-center gap-2 flex-1">
+          <div className="w-11 h-11 rounded-xl bg-green-500/10 border border-green-500/25 flex items-center justify-center relative">
+            <BookOpen className="w-5 h-5 text-green-400/80" />
+            <div className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-green-500/90 flex items-center justify-center">
+              <CheckCircle2 className="w-2.5 h-2.5 text-white" />
+            </div>
+          </div>
+          <div className="text-center">
+            <p className="text-[10px] font-semibold text-gray-300 leading-tight">변환 완료</p>
+            <p className="text-[9px] text-green-400/80 mt-0.5 leading-tight">전체 일괄 자동 처리</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom: Key features (modal only) */}
+      {showFeatures && (
+        <div className="flex gap-1.5 justify-center flex-wrap">
+          {["클릭 한 번으로 완료", "AI 맞춤법 자동 검사", "사용 가이드 제작·인수인계"].map((label) => (
+            <span
+              key={label}
+              className="px-2 py-1 rounded-full bg-gray-800/80 text-gray-400 text-[10px] border border-gray-700/50"
+            >
+              {label}
+            </span>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
 
 function ProjectModal({ 
   project, 
@@ -92,12 +178,42 @@ function ProjectModal({
           <X className="w-5 h-5" />
         </button>
 
-        {/* Thumbnail - GIF 들어갈 자리 */}
+        {/* Thumbnail */}
         <div className="aspect-video bg-secondary/30 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-transparent" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-lg text-muted-foreground">GIF / 이미지 영역</span>
-          </div>
+          {project.images ? (
+            <>
+              {/* PC 스크린샷 - 배경 */}
+              <Image
+                src={project.images.pc}
+                alt={`${project.title} 데스크톱`}
+                fill
+                className="object-cover object-left-top"
+              />
+              {/* 어두운 오버레이 */}
+              <div className="absolute inset-0 bg-background/30" />
+              {/* 모바일 스크린샷 - 있을 때만 우측 하단 겹치기 */}
+              {project.images.mobile && (
+                <div className="absolute bottom-3 right-4 h-[90%] w-auto shadow-2xl rounded-lg overflow-hidden border border-border/50">
+                  <Image
+                    src={project.images.mobile}
+                    alt={`${project.title} 모바일`}
+                    height={300}
+                    width={140}
+                    className="h-full w-auto object-cover object-top"
+                  />
+                </div>
+              )}
+            </>
+          ) : project.title === "EPUB 마이그레이션 툴" ? (
+            <EpubThumbnail />
+          ) : (
+            <>
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-transparent" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span className="text-lg font-bold text-primary/70">{project.title}</span>
+              </div>
+            </>
+          )}
         </div>
 
         {/* Content */}
@@ -116,7 +232,7 @@ function ProjectModal({
           {/* Description */}
           <div className="mb-6">
             <h4 className="text-sm font-semibold text-primary mb-2">프로젝트 소개</h4>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
               {project.fullDescription}
             </p>
           </div>
@@ -148,6 +264,16 @@ function ProjectModal({
               ))}
             </div>
           </div>
+
+          {/* Retrospective */}
+          {project.retrospective && (
+            <div className="mb-8 p-4 rounded-xl bg-primary/5 border border-primary/20">
+              <h4 className="text-sm font-semibold text-primary mb-2">회고</h4>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                {project.retrospective}
+              </p>
+            </div>
+          )}
 
           {/* Links */}
           <div className="flex gap-4">
@@ -237,13 +363,29 @@ export function ProjectsSection() {
               >
                 {/* Project Thumbnail */}
                 <div className="aspect-video bg-secondary/30 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-primary/10 to-transparent" />
-                  <div className="absolute inset-0 flex items-center justify-center px-4">
-                    <span className="text-lg font-bold text-primary/70 text-center">{project.title}</span>
-                  </div>
+                  {(project as Project).images ? (
+                    <>
+                      <Image
+                        src={(project as Project).images!.pc}
+                        alt={project.title}
+                        fill
+                        className="object-cover object-left-top"
+                      />
+                      <div className="absolute inset-0 bg-background/25" />
+                    </>
+                  ) : project.title === "EPUB 마이그레이션 툴" ? (
+                    <EpubThumbnail showFeatures={false} />
+                  ) : (
+                    <>
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-primary/10 to-transparent" />
+                      <div className="absolute inset-0 flex items-center justify-center px-4">
+                        <span className="text-lg font-bold text-primary/70 text-center">{project.title}</span>
+                      </div>
+                    </>
+                  )}
                   {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <span className="text-foreground font-medium">자세히 보기</span>
+                  <div className="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span className="text-foreground font-semibold text-sm">자세히 보기</span>
                   </div>
                 </div>
 

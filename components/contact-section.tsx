@@ -27,7 +27,7 @@ export function ContactSection() {
   return (
     <section 
       ref={sectionRef}
-      className="min-h-screen flex items-center justify-center bg-background px-6 py-20"
+      className="relative min-h-screen flex items-center justify-center bg-background px-6 py-20"
     >
       <div className="max-w-2xl mx-auto w-full">
         {/* Section Title */}
@@ -54,7 +54,7 @@ export function ContactSection() {
           }`}
         >
           <a
-            href="mailto:byungjun.bae@example.com"
+            href="mailto:bbj6887@gmail.com"
             className="flex items-center gap-4 p-6 rounded-xl bg-secondary/20 border border-border hover:border-primary/50 transition-colors group"
           >
             <div className="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
@@ -62,12 +62,12 @@ export function ContactSection() {
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Email</p>
-              <p className="text-foreground font-medium text-lg">byungjun.bae@example.com</p>
+              <p className="text-foreground font-medium text-lg">bbj6887@gmail.com</p>
             </div>
           </a>
 
           <a
-            href="https://github.com"
+            href="https://github.com/BYEONGJUN33"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-4 p-6 rounded-xl bg-secondary/20 border border-border hover:border-primary/50 transition-colors group"
@@ -77,15 +77,15 @@ export function ContactSection() {
             </div>
             <div>
               <p className="text-sm text-muted-foreground">GitHub</p>
-              <p className="text-foreground font-medium text-lg">github.com/byungjun</p>
+              <p className="text-foreground font-medium text-lg">github.com/BYEONGJUN33</p>
             </div>
           </a>
         </div>
 
         {/* Footer */}
         <div
-          className={`mt-20 pt-8 border-t border-border text-center transition-all duration-700 delay-500 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          className={`absolute bottom-0 left-0 right-0 px-6 pt-4 pb-6 border-t border-border text-center transition-all duration-700 delay-500 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
           <p className="text-muted-foreground text-sm">

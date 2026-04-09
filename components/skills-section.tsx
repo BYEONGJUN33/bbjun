@@ -2,34 +2,42 @@
 
 import { useEffect, useRef, useState } from "react"
 
-// level: 0 ~ 3 (동그라미 개수)
-const skills = [
-  { name: "React", level: 3, category: "Frontend" },
-  { name: "TypeScript", level: 1, category: "Language" },
-  { name: "Next.js", level: 2, category: "Framework" },
-  { name: "JavaScript", level: 3, category: "Language" },
-  { name: "Tailwind CSS", level: 2, category: "Styling" },
-  { name: "HTML/CSS", level: 3, category: "Frontend" },
-  { name: "Git", level: 2, category: "Tool" },
-  { name: "Figma", level: 0, category: "Design" },
+const featuredSkills = [
+  { name: "JavaScript", desc: "메인 언어 · 전 프로젝트 활용", badge: "JS", level: 3 },
+  { name: "Python",     desc: "자동화 툴 · 봇 · 서버 개발",  badge: "PY", level: 3 },
+  { name: "React",      desc: "P-Log 프론트엔드 리드",        badge: "RE", level: 2 },
+  { name: "HTML / CSS", desc: "마크업 · 스타일링 전반",       badge: "WB", level: 3 },
 ]
 
-const categories = ["Frontend", "Language", "Framework", "Styling", "Tool", "Design"]
+const otherSkills: Record<string, string[]> = {
+  "프론트엔드":    ["Tailwind CSS", "TipTap", "Swiper.js", "Chart.js"],
+  "백엔드":        ["Flask"],
+  "자동화 · 배포": ["GitHub Actions", "PyInstaller", "Android ADB"],
+  "AI · 도구":     ["Groq API (LLaMA)", "Git"],
+}
 
-function SkillLevel({ level, isVisible, delay }: { level: number; isVisible: boolean; delay: number }) {
+function LevelDots({
+  level,
+  isVisible,
+  delay,
+}: {
+  level: number
+  isVisible: boolean
+  delay: number
+}) {
   return (
-    <div className="flex gap-2">
-      {[0, 1, 2].map((index) => (
+    <div className="flex gap-1.5">
+      {[0, 1, 2].map((i) => (
         <div
-          key={index}
-          className={`w-4 h-4 rounded-full border-2 transition-all duration-500 ${
+          key={i}
+          className={`w-2.5 h-2.5 rounded-full border-2 transition-all duration-500 ${
             isVisible ? "scale-100" : "scale-0"
           } ${
-            index < level 
-              ? "bg-primary border-primary" 
-              : "bg-transparent border-muted-foreground/30"
+            i < level
+              ? "bg-primary border-primary"
+              : "bg-transparent border-muted-foreground/25"
           }`}
-          style={{ transitionDelay: `${delay + index * 100}ms` }}
+          style={{ transitionDelay: `${delay + i * 80}ms` }}
         />
       ))}
     </div>
@@ -43,22 +51,16 @@ export function SkillsSection() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-        }
+        if (entry.isIntersecting) setIsVisible(true)
       },
       { threshold: 0.3 }
     )
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current)
     return () => observer.disconnect()
   }, [])
 
   return (
-    <section 
+    <section
       ref={sectionRef}
       className="min-h-screen flex items-center justify-center bg-background px-6 py-20"
     >
@@ -77,44 +79,60 @@ export function SkillsSection() {
           </h2>
         </div>
 
-        {/* Skills Grid */}
-        <div className="grid md:grid-cols-2 gap-6">
-          {skills.map((skill, index) => (
+        {/* Featured Skills */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+          {featuredSkills.map((skill, index) => (
             <div
               key={skill.name}
-              className={`p-6 rounded-2xl bg-secondary/20 border border-border transition-all duration-700 ${
+              className={`p-5 rounded-2xl bg-secondary/20 border border-border hover:border-primary/40 transition-all duration-700 group ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
-              style={{ transitionDelay: `${index * 100}ms` }}
+              style={{ transitionDelay: `${100 + index * 80}ms` }}
             >
-              <div className="flex items-center justify-between">
-                <div>
-                  <h3 className="text-lg font-semibold text-foreground">{skill.name}</h3>
-                  <span className="text-xs text-muted-foreground">{skill.category}</span>
+              {/* Badge + Dots */}
+              <div className="flex items-start justify-between mb-4">
+                <div className="w-9 h-9 rounded-lg bg-primary/15 flex items-center justify-center group-hover:bg-primary/25 transition-colors">
+                  <span className="text-[11px] font-bold text-primary">{skill.badge}</span>
                 </div>
-                <SkillLevel 
-                  level={skill.level} 
-                  isVisible={isVisible} 
-                  delay={index * 100 + 300} 
+                <LevelDots
+                  level={skill.level}
+                  isVisible={isVisible}
+                  delay={200 + index * 80}
                 />
               </div>
+              <p className="text-sm font-semibold text-foreground mb-1">{skill.name}</p>
+              <p className="text-[11px] text-muted-foreground leading-snug">{skill.desc}</p>
             </div>
           ))}
         </div>
 
-        {/* Category Badges */}
-        <div
-          className={`mt-12 flex flex-wrap justify-center gap-3 transition-all duration-700 delay-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          {categories.map((category) => (
-            <span
+        {/* Other Skills by Category */}
+        <div className="space-y-5">
+          {Object.entries(otherSkills).map(([category, techs], catIndex) => (
+            <div
               key={category}
-              className="px-4 py-2 rounded-full bg-secondary/30 border border-border text-sm text-muted-foreground"
+              className={`transition-all duration-700 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
+              style={{ transitionDelay: `${480 + catIndex * 80}ms` }}
             >
-              {category}
-            </span>
+              <div className="flex items-center gap-3 mb-2.5">
+                <span className="text-xs font-medium text-muted-foreground tracking-wide shrink-0">
+                  {category}
+                </span>
+                <div className="flex-1 h-px bg-border" />
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {techs.map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-3 py-1.5 text-xs rounded-lg bg-secondary/30 border border-border text-muted-foreground hover:text-foreground hover:border-primary/30 transition-colors"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </div>
