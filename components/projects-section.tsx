@@ -365,15 +365,12 @@ export function ProjectsSection() {
                 {/* Project Thumbnail */}
                 <div className="aspect-video bg-secondary/30 relative overflow-hidden">
                   {(project as Project).images ? (
-                    <>
-                      <Image
-                        src={(project as Project).images!.pc}
-                        alt={project.title}
-                        fill
-                        className="object-cover object-top"
-                      />
-                      <div className="absolute inset-0 bg-background/10" />
-                    </>
+                    <Image
+                      src={(project as Project).images!.pc}
+                      alt={project.title}
+                      fill
+                      className="object-cover object-top"
+                    />
                   ) : project.title === "EPUB 마이그레이션 툴" ? (
                     <EpubThumbnail showFeatures={false} />
                   ) : (
