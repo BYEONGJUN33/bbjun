@@ -86,9 +86,9 @@ export function HeroSection() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          부트캠프 수료 후 웅진씽크빅 인턴에서 혼자 2개월 만에
+          AI 시대에 누구보다 빠르게 흡수하고 실행합니다.
           <br className="hidden md:block" />
-          사내 자동화 도구를 기획·개발·배포·인수인계까지 완주한 개발자입니다.
+          상상한 것을 실제 서비스로 완성하는 프론트엔드 개발자입니다.
         </p>
 
         {/* CTA Buttons */}
