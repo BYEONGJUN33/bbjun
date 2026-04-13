@@ -357,13 +357,13 @@ export function ProjectsSection() {
               <button
                 key={project.title}
                 onClick={() => setSelectedProject(project)}
-                className={`group rounded-2xl bg-secondary/20 border border-border overflow-hidden transition-all duration-700 hover:border-primary/50 hover:scale-[1.02] text-left cursor-pointer ${
+                className={`group flex flex-col rounded-2xl bg-secondary/20 border border-border overflow-hidden transition-all duration-700 hover:border-primary/50 hover:scale-[1.02] text-left cursor-pointer ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 }`}
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
                 {/* Project Thumbnail */}
-                <div className="aspect-video bg-secondary/30 relative overflow-hidden">
+                <div className="aspect-video w-full relative overflow-hidden">
                   {(project as Project).images ? (
                     <Image
                       src={(project as Project).images!.pc}
