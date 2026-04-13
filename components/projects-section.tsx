@@ -11,50 +11,51 @@ const projects = [
     description: "팀장으로 기획·프론트엔드 전담한 카드 스와이프형 TIL 블로그 플랫폼",
     fullDescription: "기존 블로그의 무거운 줄글 방식에서 벗어나, 숏폼·스낵 컬처에 맞는 카드 스와이프형 TIL 블로그 플랫폼. 텍스트보다 비주얼 중심의 콘텐츠 탐색 UX를 구현했습니다.",
     achievements: [
-      "팀장으로서 전체 일정 조율, 프론트엔드 아키텍처 설계 및 구현 총괄",
+      "팀장으로서 전체 일정 조율 및 개발 환경 구성",
+      "프론트엔드 아키텍처 설계 및 구현",
       "TipTap 에디터 도입 — Drag & Drop, 이미지 확대/축소/이동 기능 구현",
       "좌우 Swipe 기반 Short-form Viewer 직접 기획 및 구현",
-      "관심사 기반 태그 개인화 큐레이션, 반응형 모바일 최적화",
-      "AWS 배포까지 완료, 전체 달성도 85%"
+      "반응형 모바일 최적화",
+      
     ],
-    tech: ["React", "Vite", "JavaScript", "HTML/CSS", "TipTap", "Swiper.js", "Context API", "Axios", "AWS", "Spring"],
+    tech: ["React", "Vite", "JavaScript", "HTML/CSS", "TipTap", "Swiper.js", "Context API", "Axios", "Spring"],
     github: "https://github.com",
     demo: "",
-    role: "팀장 / 프론트엔드 리드 | 3인 팀 프로젝트",
+    role: "팀장 / 프론트엔드 전담 | 3인 팀 프로젝트",
     period: "2025.10 - 2025.12",
     images: { pc: "/pc_plog.png", mobile: "/mobile_plog.png" }
   },
   {
     title: "EPUB 마이그레이션 툴",
-    description: "수작업 EPUB 업무를 Python 툴로 해결. 기획부터 EXE 납품까지 단독 완주.",
-    fullDescription: "IT혁신본부 프론트엔드팀 소속 인턴으로, 코드를 다룰 줄 모르는 컨텐츠 개발팀이 수백 권의 EPUB 전자책을 일일이 수작업으로 수정하거나 외부 인력에 의존하던 문제를 발견했습니다. Chrome 86+ 보안 정책 변경으로 레거시 JavaScript가 일괄 동작 불가 상태가 된 것이 발단이었고, 이를 해결하기 위해 기획부터 배포까지 단독으로 진행했습니다.\n컨텐츠 개발팀과 직접 미팅을 진행하며 실무 환경과 사용 방식을 파악하고, \"pip도 모르는 담당자가 혼자 쓸 수 있어야 한다\"는 피드백을 수렴해 설치 없이 실행되는 EXE 형태로 최종 납품했습니다.",
+    description: "수작업 EPUB 업무를 Python 툴로 해결. 기획부터 EXE 납품·인수인계까지 주도적으로 진행.",
+    fullDescription: "IT혁신본부 프론트엔드팀 소속 인턴으로, 코드를 다룰 줄 모르는 컨텐츠 개발팀이 수백 권의 EPUB 전자책을 일일이 수작업으로 수정하거나 외부 인력에 의존하던 문제를 발견했습니다. Chrome 86+ 보안 정책 변경으로 레거시 JavaScript가 일괄 동작 불가 상태가 된 것이 발단이었고, 이를 해결하기 위해 기획부터 배포까지 진행했습니다.\n컨텐츠 개발팀과 직접 미팅을 진행하며 실무 환경과 사용 방식을 파악하고, \"코드를 모르는 담당자가 혼자 쓸 수 있어야 한다\"는 피드백을 수렴해 설치 없이 실행되는 EXE 형태와 편의성을 고려한 최종품을 납품했습니다.",
     achievements: [
-      "수시간 걸리던 수작업을 파일 드래그만으로 수분 내 처리 가능하도록 자동화",
-      "비개발자 담당자가 단독 운영할 수 있는 수준으로 인수인계 완료, 인턴 종료 후 팀 내 지속 운영 중",
-      "PC에서 직접 복호화가 불가능한 ARM 전용 DRM 구조를 ADB 브릿지 아키텍처로 우회 해결",
-      "Python 서버 3개 + ADB + APK를 단일 EXE로 패키징, 설치 없이 바로 실행",
-      "GitHub Actions CI/CD 구축 — 태그 push 한 번으로 자동 빌드·배포",
+      "수시간 걸리던 수작업을 손 쉽게 처리 가능하도록 자동화 도구 개발",
+      "비개발자 담당자가 단독 운영할 수 있는 수준으로 최종 결과물 납품 및 인수인계까지 마무리",
+      "태블릿에서만 동작하는 DRM 해제 APK를 ADB로 PC와 연결해 자동화 파이프라인 구성",
+      "Python 서버 + ADB + APK를 단일 EXE로 패키징, 설치 없이 바로 실행",
+      "GitHub Actions CI/CD 구축 경험 — 이후 사내 클라우드 배포로 전환",
       "Groq AI(LLaMA) 연동 오타 검증, WebP 이미지 최적화까지 단일 툴에 통합",
-      "컨텐츠 개발팀과 미팅을 통해 요구사항을 직접 수렴하고 피드백을 즉시 반영"
+      "컨텐츠 개발팀과 미팅을 여러차례 진행해 요구사항을 직접 수렴하고 피드백을 반영"
     ],
     tech: ["Python", "Flask", "JavaScript", "HTML/CSS", "Tailwind CSS", "PyInstaller", "GitHub Actions", "Android ADB", "Groq API"],
     github: "https://github.com",
     demo: "",
-    role: "단독 개발 | 웅진씽크빅 인턴",
+    role: "1인 개발 | 웅진씽크빅 인턴",
     period: "2026.01 - 2026.03",
-    retrospective: "기획·개발·배포를 혼자 2개월 만에 끝냈습니다. AI 도구를 적극 활용했지만, 실제로 동작하게 만드는 디버깅·설계·판단은 제가 했습니다. \"AI가 코드를 주는 것\"과 \"완성된 도구를 납품하는 것\"의 차이를 실감한 프로젝트입니다."
+    retrospective: "모르는 부분은 멘토분들과 팀장님께 조언을 구해가며 진행했고, 기획·개발·배포를 2개월 만에 완주했습니다. AI 도구를 적극 활용했지만, 실제로 동작하게 만드는 디버깅·설계·판단은 제가 했습니다. \"AI가 코드를 주는 것\"과 \"완성된 도구를 납품하는 것\"의 차이를 실감한 프로젝트입니다."
   },
   {
     title: "Binance MA Cross 자동매매 봇",
     description: "이동평균 전략 자동매매 봇과 실시간 모니터링 대시보드. 24시간 운용 중.",
-    fullDescription: "바이낸스 거래소 API를 연동한 암호화폐 현물 자동매매 시스템입니다. 이동평균 크로스(MA Cross) 전략으로 매수·매도 신호를 자동 생성하고, 운용 현황을 실시간으로 확인할 수 있는 웹 모니터링 대시보드를 직접 설계·구현했습니다. Oracle Cloud 서버에 배포하여 24시간 무중단으로 운용 중입니다.",
+    fullDescription: "실생활 자동화에 관심이 생겨 시작한 개인 프로젝트입니다.\n바이낸스 거래소 API를 연동한 암호화폐 현물 자동매매 시스템입니다. 이동평균 크로스(MA Cross) 전략으로 매수·매도 신호를 자동 생성하고, 운용 현황을 실시간으로 확인할 수 있는 웹 모니터링 대시보드를 직접 설계·구현했습니다. Oracle Cloud 서버에 배포하여 24시간 무중단으로 운용 중입니다.",
     achievements: [
       "실시간 모니터링 대시보드 구현 — Fetch API + setInterval 폴링으로 가격·포지션·수익률·로그를 한 화면에서 실시간 갱신",
       "Chart.js 기반 캔들 차트 — zoom/pan 플러그인 적용, 최근 200개 캔들 인터랙티브 시각화",
       "로그 뷰어 UX 개선 — 레벨별(INFO/WARN/ERR) 필터, 키워드 검색, 매수·매도 색상 구분, 스마트 자동 스크롤",
       "반응형 레이아웃 — CSS Grid + Custom Properties 기반, 모바일~데스크탑 대응",
-      "보안 처리 — 로그인 세션 인증, 브루트포스 방어(5회 실패 시 잠금), 긴급 정지 API 인증",
-      "113개 유닛 테스트 전체 통과 유지, GitHub 커밋 50회 이상"
+      "로그인 세션 인증, 브루트포스 방어(5회 실패 시 잠금), 긴급 정지 API 인증",
+      "핵심 매매 로직 유닛 테스트 113개 전체 통과 유지"
     ],
     tech: ["Python", "Flask", "HTML5", "CSS3", "JavaScript", "Chart.js", "pytest", "Oracle Cloud", "systemd"],
     github: "https://github.com",
@@ -369,9 +370,9 @@ export function ProjectsSection() {
                         src={(project as Project).images!.pc}
                         alt={project.title}
                         fill
-                        className="object-cover object-left-top"
+                        className="object-cover object-top"
                       />
-                      <div className="absolute inset-0 bg-background/25" />
+                      <div className="absolute inset-0 bg-background/10" />
                     </>
                   ) : project.title === "EPUB 마이그레이션 툴" ? (
                     <EpubThumbnail showFeatures={false} />
