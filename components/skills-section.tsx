@@ -10,10 +10,11 @@ const featuredSkills = [
 ]
 
 const otherSkills: Record<string, string[]> = {
-  "프론트엔드":    ["Tailwind CSS", "TipTap", "Swiper.js", "Chart.js"],
-  "백엔드":        ["Flask"],
-  "자동화 · 배포": ["GitHub Actions", "PyInstaller", "Android ADB"],
-  "AI · 도구":     ["Groq API (LLaMA)", "Git"],
+  "프론트엔드":  ["Tailwind CSS", "TipTap"],
+  "백엔드":      ["Flask"],
+  "자동화·배포": ["GitHub Actions", "PyInstaller", "Android ADB"],
+  "AI·도구":     ["Groq API (LLaMA)"],
+  "협업":        ["Git"],
 }
 
 function LevelDots({
