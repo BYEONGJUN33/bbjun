@@ -38,7 +38,7 @@ export function AboutSection() {
           <span className="text-primary text-sm font-medium tracking-widest uppercase mb-4 block">
             About Me
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground text-balance">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground">
             안녕하세요,
             <br />
             <span className="text-primary">배병준</span>입니다.
@@ -51,7 +51,7 @@ export function AboutSection() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <p className="text-lg text-muted-foreground leading-relaxed text-pretty">
+          <p className="text-lg text-muted-foreground leading-relaxed">
             상상한 것을 직접 만들 수 있다는 것에 매료되어 개발을 시작했습니다.
             불편함을 발견하면 직접 해결하고 싶어지고,{" "}
             <span className="text-foreground font-medium">
@@ -59,7 +59,7 @@ export function AboutSection() {
             </span>
             에서 가장 큰 즐거움을 느낍니다.
           </p>
-          <p className="text-lg text-muted-foreground leading-relaxed text-pretty">
+          <p className="text-lg text-muted-foreground leading-relaxed">
             새로운 기술을 접하면 빠르게 익히고 바로 적용합니다.
             개발을 시작한 지{" "}
             <span className="text-foreground font-medium">
