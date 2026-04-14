@@ -82,12 +82,11 @@ export function HeroSection() {
 
         {/* Description */}
         <p
-          className={`text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed transition-all duration-700 delay-300 ${
+          className={`text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed text-pretty transition-all duration-700 delay-300 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          AI 시대에 누구보다 빠르게 흡수하고 실행합니다.
-          <br className="hidden md:block" />
+          AI 시대에 누구보다 빠르게 흡수하고 실행합니다.{" "}
           상상한 것을 실제 서비스로 완성하는 프론트엔드 개발자입니다.
         </p>
 

@@ -46,7 +46,7 @@ const projects = [
     retrospective: "모르는 부분은 멘토분들과 팀장님께 조언을 구해가며 진행했고, 기획·개발·배포를 2개월 만에 완주했습니다. AI 도구를 적극 활용했지만, 실제로 동작하게 만드는 디버깅·설계·판단은 제가 했습니다. \"AI가 코드를 주는 것\"과 \"완성된 도구를 납품하는 것\"의 차이를 실감한 프로젝트입니다."
   },
   {
-    title: "Binance MA Cross 자동매매 봇",
+    title: "MA Cross 자동매매 봇",
     description: "이동평균 전략 자동매매 봇과 실시간 모니터링 대시보드. 24시간 운용 중.",
     fullDescription: "실생활 자동화에 관심이 생겨 시작한 개인 프로젝트입니다.\n바이낸스 거래소 API를 연동한 암호화폐 현물 자동매매 시스템입니다. 이동평균 크로스(MA Cross) 전략으로 매수·매도 신호를 자동 생성하고, 운용 현황을 실시간으로 확인할 수 있는 웹 모니터링 대시보드를 직접 설계·구현했습니다. Oracle Cloud 서버에 배포하여 24시간 무중단으로 운용 중입니다.",
     achievements: [
@@ -389,7 +389,7 @@ export function ProjectsSection() {
 
                 {/* Project Info */}
                 <div className="p-6 flex flex-col flex-1">
-                  <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                  <h3 className="text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
                   <p className="text-sm text-muted-foreground mb-4 line-clamp-2 flex-1">

@@ -10,7 +10,7 @@ const featuredSkills = [
 ]
 
 const otherSkills: Record<string, string[]> = {
-  "프론트엔드":  ["Tailwind CSS", "TipTap"],
+  "프론트엔드":  ["Tailwind CSS", "TipTap", "Swiper.js", "Chart.js", "Vite"],
   "백엔드":      ["Flask"],
   "자동화·배포": ["GitHub Actions", "PyInstaller", "Android ADB"],
   "AI·도구":     ["Groq API (LLaMA)"],
