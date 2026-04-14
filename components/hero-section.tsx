@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Github, Linkedin, Mail, ArrowDown } from "lucide-react"
+import { Github, ArrowDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function HeroSection() {
@@ -97,24 +97,14 @@ export function HeroSection() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          <Button 
-            size="lg" 
+          <Button
+            size="lg"
             className="min-w-[160px] bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:scale-105"
             onClick={() => {
               document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
             }}
           >
             프로젝트 보기
-          </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            className="min-w-[160px] border-border text-foreground hover:bg-secondary transition-all duration-300 hover:scale-105"
-            onClick={() => {
-              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
-            }}
-          >
-            연락하기
           </Button>
         </div>
 
@@ -132,22 +122,6 @@ export function HeroSection() {
             aria-label="GitHub"
           >
             <Github className="w-5 h-5" />
-          </a>
-          <a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 rounded-full bg-secondary/50 text-muted-foreground hover:text-foreground hover:bg-secondary transition-all duration-300 hover:scale-110"
-            aria-label="LinkedIn"
-          >
-            <Linkedin className="w-5 h-5" />
-          </a>
-          <a
-            href="mailto:bbj6887@gmail.com"
-            className="p-3 rounded-full bg-secondary/50 text-muted-foreground hover:text-foreground hover:bg-secondary transition-all duration-300 hover:scale-110"
-            aria-label="Email"
-          >
-            <Mail className="w-5 h-5" />
           </a>
         </div>
       </div>
