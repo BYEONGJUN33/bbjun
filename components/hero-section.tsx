@@ -139,7 +139,7 @@ export function HeroSection() {
       </div>
 
       {/* Tech stack floating tags */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none overflow-hidden hidden md:block">
         <FloatingTag 
           text="React" 
           className="top-[20%] left-[10%]" 

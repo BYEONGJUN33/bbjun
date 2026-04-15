@@ -8,7 +8,6 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: '배병준 | Frontend Developer',
   description: '사용자 경험을 중시하는 프론트엔드 개발자 배병준입니다.',
-  generator: 'v0.app',
   icons: {
     icon: '/icon.svg',
   },

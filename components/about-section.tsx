@@ -70,13 +70,13 @@ export function AboutSection() {
 
           {/* Stats */}
           <div
-            className={`grid grid-cols-3 gap-6 pt-8 border-t border-border transition-all duration-700 delay-400 ${
+            className={`grid grid-cols-3 gap-3 sm:gap-6 pt-8 border-t border-border transition-all duration-700 delay-400 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
             {stats.map((stat) => (
               <div key={stat.label}>
-                <div className="text-3xl font-bold text-primary">{stat.value}</div>
+                <div className="text-2xl sm:text-3xl font-bold text-primary">{stat.value}</div>
                 <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
               </div>
             ))}

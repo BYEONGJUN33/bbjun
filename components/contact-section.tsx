@@ -25,11 +25,11 @@ export function ContactSection() {
   }, [])
 
   return (
-    <section 
+    <section
       ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center bg-background px-6 py-20"
+      className="relative min-h-screen flex flex-col bg-background px-6 py-20"
     >
-      <div className="max-w-2xl mx-auto w-full">
+      <div className="max-w-2xl mx-auto w-full flex flex-col flex-1">
         {/* Section Title */}
         <div
           className={`mb-16 text-center transition-all duration-700 ${
@@ -84,7 +84,7 @@ export function ContactSection() {
 
         {/* Footer */}
         <div
-          className={`absolute bottom-0 left-0 right-0 px-6 pt-4 pb-6 border-t border-border text-center transition-all duration-700 delay-500 ${
+          className={`mt-auto pt-8 border-t border-border text-center transition-all duration-700 delay-500 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
