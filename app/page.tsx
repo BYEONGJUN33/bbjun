@@ -23,7 +23,7 @@ export default function Home() {
       <div className="snap-start snap-always">
         <ExperienceSection />
       </div>
-      <div className="snap-start snap-always">
+      <div id="contact" className="snap-start snap-always">
         <ContactSection />
       </div>
     </main>

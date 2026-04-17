@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Github, ExternalLink, X, BookOpen, AlertTriangle, CheckCircle2, ArrowRight, Settings } from "lucide-react"
+import { Github, ExternalLink, X } from "lucide-react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 
@@ -9,18 +9,26 @@ const projects = [
   {
     title: "P-Log",
     description: "팀장으로 기획·프론트엔드 전담한 카드 스와이프형 TIL 블로그 플랫폼",
-    fullDescription: "기존 블로그의 무거운 줄글 방식에서 벗어나, 숏폼·스낵 컬처에 맞는 카드 스와이프형 TIL 블로그 플랫폼. 텍스트보다 비주얼 중심의 콘텐츠 탐색 UX를 구현했습니다.",
+    fullDescription: "기존 TIL 블로그는 긴 글 중심 구조로 인해 찾는 사람들이 줄고 모바일 환경에서 콘텐츠 탐색 효율이 낮다는 문제를 해결하고자, 카드 스와이프 기반 Short-form 콘텐츠 탐색 UX를 설계한 TIL 블로그 플랫폼입니다.",
     achievements: [
-      "팀장으로서 전체 일정 조율 및 개발 환경 구성",
-      "프론트엔드 아키텍처 설계 및 구현",
+      "팀장으로서 전체 일정 조율 및 개발 환경 구성 - 디스코드 푸시 알림 연동 및 협업 스테이션 관리와 회의 주도와 기록을 정리하였다.",
+      "컴포넌트 재사용성을 고려한 React 기반 프론트엔드 아키텍처 설계 및 상태 관리 구조 설계",
       "TipTap 에디터 도입 — Drag & Drop, 이미지 확대/축소/이동 기능 구현",
-      "좌우 Swipe 기반 Short-form Viewer 직접 기획 및 구현",
-      "반응형 모바일 최적화",
-      
+      "모바일 사용성을 고려한 Swipe 기반 Short-form 콘텐츠 Viewer 설계 및 구현",
+      "반응형 모바일 최적화를 담당하여 모바일 퍼스트 방식으로 프로젝트를 개발.",
     ],
-    tech: ["React", "Vite", "JavaScript", "HTML/CSS", "TipTap", "Swiper.js", "Context API", "Axios", "Spring"],
+    tech: [
+      { name: "React",       reason: "카드·에디터 등 반복 구조가 많아 컴포넌트 재사용성이 중요했기 때문에 선택" },
+      { name: "Vite",        reason: "UI를 반복 수정하는 사이클이 많아 빠른 HMR로 개발 생산성을 높이기 위해 선택" },
+      { name: "JavaScript",  reason: "Swipe 제스처·에디터 등 브라우저 인터랙션 로직을 직접 제어하기 위해 사용" },
+      { name: "HTML/CSS",    reason: "모바일 우선 카드 뷰 레이아웃을 직접 설계하기 위해 사용" },
+      { name: "TipTap",      reason: "에디터를 처음부터 구현하는 대신 확장 API가 자유로운 라이브러리를 선택해 커스텀 기능에 집중" },
+      { name: "Swiper.js",   reason: "Swipe 인터랙션을 직접 구현하는 대신 성숙한 라이브러리로 안정성을 확보하고 UX에 집중" },
+      { name: "Context API", reason: "전역 상태가 단순해 Redux 없이 경량으로 관리하기 위해 선택" },
+      { name: "Axios",       reason: "공통 인터셉터로 인증 토큰 처리를 일괄 관리하기 위해 fetch 대신 선택" },
+      { name: "Spring",      reason: "팀원 담당 백엔드 — REST API 연동 방식 협의 및 프론트 연결 담당" },
+    ],
     github: "https://github.com",
-    demo: "",
     role: "팀장 / 프론트엔드 전담 | 3인 팀 프로젝트",
     period: "2025.10 - 2025.12",
     images: { pc: "/pc_plog.png", mobile: "/mobile_plog.png" }
@@ -28,22 +36,32 @@ const projects = [
   {
     title: "EPUB 마이그레이션 툴",
     description: "수작업 EPUB 업무를 Python 툴로 해결. 기획부터 EXE 납품·인수인계까지 주도적으로 진행.",
-    fullDescription: "IT혁신본부 프론트엔드팀 소속 인턴으로, 코드를 다룰 줄 모르는 컨텐츠 개발팀이 수백 권의 EPUB 전자책을 일일이 수작업으로 수정하거나 외부 인력에 의존하던 문제를 발견했습니다. Chrome 86+ 보안 정책 변경으로 레거시 JavaScript가 일괄 동작 불가 상태가 된 것이 발단이었고, 이를 해결하기 위해 기획부터 배포까지 진행했습니다.\n컨텐츠 개발팀과 직접 미팅을 진행하며 실무 환경과 사용 방식을 파악하고, \"코드를 모르는 담당자가 혼자 쓸 수 있어야 한다\"는 피드백을 수렴해 설치 없이 실행되는 EXE 형태와 편의성을 고려한 최종품을 납품했습니다.",
+    fullDescription: "Chrome 86+ 보안 정책 변경으로 사내 클라우드의 1만 권 이상 EPUB 전자책 내 레거시 JavaScript가 일괄 동작 불가 상태가 됐습니다. 외부 인력에 의존하던 수작업을 자동화하기 위해 기획부터 EXE 납품까지 1인 개발로 진행했습니다.\n이후 팀장님 피드백을 반영해 WebP 최적화(용량 50~90% 절감), DRM 일괄 자동화, Groq API 기반 오타 검증까지 기능을 확장해 단일 통합 도구로 완성했습니다.",
     achievements: [
-      "수시간 걸리던 수작업을 손 쉽게 처리 가능하도록 자동화 도구 개발",
+      "외부 인력 기준 파일 1개당 약 5분 → 도구 적용 시 10초 이내로 단축, 다량 파일 일괄 처리로 전체 작업 시간 대폭 감소",
       "비개발자 담당자가 단독 운영할 수 있는 수준으로 최종 결과물 납품 및 인수인계까지 마무리",
-      "태블릿에서만 동작하는 DRM 해제 APK를 ADB로 PC와 연결해 자동화 파이프라인 구성",
-      "Python 서버 + ADB + APK를 단일 EXE로 패키징, 설치 없이 바로 실행",
+      "건별 수동 해제가 필요하던 DRM을 ADB로 태블릿 APK와 연결해 일괄 자동화 — 웹 단독 도구에서 통합 도구로 확장",
+      "Python 서버, ADB, APK 의존성을 PyInstaller로 패키징하여 설치 없이 실행 가능한 단일 EXE 배포 환경 구축",
       "GitHub Actions CI/CD 구축 경험 — 이후 사내 클라우드 배포로 전환",
-      "Groq AI(LLaMA) 연동 오타 검증, WebP 이미지 최적화까지 단일 툴에 통합",
+      "WebP 변환으로 이미지 용량 50~90% 절감, 반복 실험으로 최적 필터링 도출 후 Groq API(LLaMA) 연동 오타 검증까지 단일 툴에 통합 — Groq는 xAI의 Grok과 무관한 별개 서비스",
       "컨텐츠 개발팀과 미팅을 여러차례 진행해 요구사항을 직접 수렴하고 피드백을 반영"
     ],
-    tech: ["Python", "Flask", "JavaScript", "HTML/CSS", "Tailwind CSS", "PyInstaller", "GitHub Actions", "Android ADB", "Groq API"],
+    tech: [
+      { name: "Python",         reason: "파일 파싱·정규식·OS 제어 등 자동화 작업 전반에 가장 적합해 선택" },
+      { name: "Flask",          reason: "Python 환경에서 경량 API 서버가 필요했고, SSE로 진행 상태를 실시간 스트리밍하기 위해 선택" },
+      { name: "JavaScript",     reason: "서버 없이 브라우저에서 바로 동작하는 간단한 UI가 필요해 사용" },
+      { name: "HTML/CSS",       reason: "코드를 모르는 담당자도 직관적으로 쓸 수 있는 단순한 UI를 빠르게 구성하기 위해 사용" },
+      { name: "Tailwind CSS",   reason: "디자인 결정 비용 없이 빠르게 UI를 완성하기 위해 선택" },
+      { name: "PyInstaller",    reason: "사용자 PC에 Python 설치 없이 실행할 수 있어야 했기 때문에 선택" },
+      { name: "GitHub Actions", reason: "태그 push 시 EXE 빌드·배포가 자동으로 이뤄져야 해서 선택" },
+      { name: "Android ADB",    reason: "태블릿 전용 APK를 PC에서 자동 실행할 수 있는 유일한 방법이었기 때문에 사용" },
+      { name: "Groq API (LLaMA)", reason: "무료 토큰 한도가 가장 넉넉해 오타 검증을 부담 없이 연동하기 위해 선택" },
+    ],
     github: "https://github.com",
     demo: "",
     role: "1인 개발 | 웅진씽크빅 인턴",
     period: "2026.01 - 2026.03",
-    retrospective: "모르는 부분은 멘토분들과 팀장님께 조언을 구해가며 진행했고, 기획·개발·배포를 2개월 만에 완주했습니다. AI 도구를 적극 활용했지만, 실제로 동작하게 만드는 디버깅·설계·판단은 제가 했습니다. \"AI가 코드를 주는 것\"과 \"완성된 도구를 납품하는 것\"의 차이를 실감한 프로젝트입니다."
+    retrospective: "모르는 부분은 멘토분들과 팀장님께 조언을 구해가며 진행했고, 기획·개발·배포를 약 50일 만에 완주했습니다. 사내 보안 정책상 깃헙 코드 & 캡처본이 없습니다."
   },
   {
     title: "MA Cross 자동매매 봇",
@@ -57,7 +75,17 @@ const projects = [
       "로그인 세션 인증, 브루트포스 방어(5회 실패 시 잠금), 긴급 정지 API 인증",
       "핵심 매매 로직 유닛 테스트 113개 전체 통과 유지"
     ],
-    tech: ["Python", "Flask", "HTML5", "CSS3", "JavaScript", "Chart.js", "pytest", "Oracle Cloud", "systemd"],
+    tech: [
+      { name: "Python",       reason: "바이낸스 API 연동·데이터 처리·스케줄링을 하나로 통합하기에 가장 적합해 선택" },
+      { name: "Flask",        reason: "봇과 동일 프로세스에서 모니터링 대시보드를 가볍게 서빙하기 위해 선택" },
+      { name: "HTML5",        reason: "프레임워크 없이 대시보드 UI를 가볍게 구성하기 위해 사용" },
+      { name: "CSS3",         reason: "Grid·Custom Properties로 반응형 레이아웃을 직접 제어하기 위해 사용" },
+      { name: "JavaScript",   reason: "폴링·차트 업데이트 등 실시간 UI 인터랙션을 직접 구현하기 위해 사용" },
+      { name: "Chart.js",     reason: "캔들 차트와 zoom/pan 플러그인을 빠르게 통합할 수 있어 선택" },
+      { name: "pytest",       reason: "매매 로직 엣지 케이스를 자동 검증해 실거래 오류를 사전에 방지하기 위해 도입" },
+      { name: "Oracle Cloud", reason: "24시간 무중단 운영이 필요했고 무료로 사용 가능한 서버를 확보하기 위해 선택" },
+      { name: "systemd",      reason: "서버 재부팅 시 봇이 자동으로 재시작되도록 프로세스를 관리하기 위해 사용" },
+    ],
     github: "https://github.com",
     demo: "",
     role: "개인 프로젝트 | 기획·설계·개발 전담",
@@ -66,82 +94,13 @@ const projects = [
   }
 ]
 
+type TechItem = { name: string; reason: string }
+
 type Project = typeof projects[number] & {
   images?: { pc: string; mobile: string | "" }
   retrospective?: string
 }
 
-function EpubThumbnail({ showFeatures = true }: { showFeatures?: boolean }) {
-  return (
-    <div className="absolute inset-0 bg-[#111318] flex flex-col justify-between p-4 overflow-hidden select-none">
-      {/* Title row */}
-      <div className="flex items-center justify-between">
-        <p className="text-[10px] text-gray-500 font-medium tracking-widest uppercase">
-          사내 자동화 도구
-        </p>
-        {showFeatures && (
-          <p className="text-[10px] text-gray-600 italic">
-            * 사내 정책상 캡처·코드 비공개
-          </p>
-        )}
-      </div>
-
-      {/* Core flow: Problem → Tool → Result */}
-      <div className="flex items-center justify-center gap-2">
-        {/* Before */}
-        <div className="flex flex-col items-center gap-2 flex-1">
-          <div className="w-11 h-11 rounded-xl bg-red-500/10 border border-red-500/25 flex items-center justify-center relative">
-            <BookOpen className="w-5 h-5 text-red-400/80" />
-            <div className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-red-500/90 flex items-center justify-center">
-              <AlertTriangle className="w-2 h-2 text-white" />
-            </div>
-          </div>
-          <div className="text-center">
-            <p className="text-[10px] font-semibold text-gray-300 leading-tight">레거시 EPUB</p>
-            <p className="text-[9px] text-red-400/80 mt-0.5 leading-tight">Chrome 동작 불가</p>
-          </div>
-        </div>
-
-        {/* Arrow + Tool */}
-        <div className="flex flex-col items-center gap-1 shrink-0">
-          <div className="w-9 h-9 rounded-xl bg-blue-500/15 border border-blue-500/30 flex items-center justify-center">
-            <Settings className="w-4 h-4 text-blue-400" />
-          </div>
-          <ArrowRight className="w-3 h-3 text-gray-600" />
-          <p className="text-[8px] text-blue-400/80 tracking-wide whitespace-nowrap">Python 자동화 툴</p>
-        </div>
-
-        {/* After */}
-        <div className="flex flex-col items-center gap-2 flex-1">
-          <div className="w-11 h-11 rounded-xl bg-green-500/10 border border-green-500/25 flex items-center justify-center relative">
-            <BookOpen className="w-5 h-5 text-green-400/80" />
-            <div className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-green-500/90 flex items-center justify-center">
-              <CheckCircle2 className="w-2.5 h-2.5 text-white" />
-            </div>
-          </div>
-          <div className="text-center">
-            <p className="text-[10px] font-semibold text-gray-300 leading-tight">변환 완료</p>
-            <p className="text-[9px] text-green-400/80 mt-0.5 leading-tight">전체 일괄 자동 처리</p>
-          </div>
-        </div>
-      </div>
-
-      {/* Bottom: Key features (modal only) */}
-      {showFeatures && (
-        <div className="flex gap-1.5 justify-center flex-wrap">
-          {["클릭 한 번으로 완료", "AI 맞춤법 자동 검사", "사용 가이드 제작·인수인계"].map((label) => (
-            <span
-              key={label}
-              className="px-2 py-1 rounded-full bg-gray-800/80 text-gray-400 text-[10px] border border-gray-700/50"
-            >
-              {label}
-            </span>
-          ))}
-        </div>
-      )}
-    </div>
-  )
-}
 
 function ProjectModal({ 
   project, 
@@ -206,7 +165,12 @@ function ProjectModal({
               )}
             </>
           ) : project.title === "EPUB 마이그레이션 툴" ? (
-            <EpubThumbnail />
+            <Image
+              src="/epub_thumbnail.svg"
+              alt="EPUB 마이그레이션 툴 프로세스"
+              fill
+              className="object-cover"
+            />
           ) : (
             <>
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-transparent" />
@@ -254,14 +218,18 @@ function ProjectModal({
           {/* Tech Stack */}
           <div className="mb-8">
             <h4 className="text-sm font-semibold text-primary mb-3">사용 기술</h4>
-            <div className="flex flex-wrap gap-2">
-              {project.tech.map((tech) => (
-                <span
-                  key={tech}
-                  className="px-3 py-1.5 text-sm rounded-lg bg-secondary text-foreground"
-                >
-                  {tech}
-                </span>
+            <div className="flex flex-col gap-1.5">
+              {(project.tech as TechItem[]).map((tech) => (
+                <div key={tech.name} className="flex items-baseline gap-2 text-sm">
+                  <span className="px-2.5 py-1 rounded-md bg-secondary text-foreground font-medium shrink-0">
+                    {tech.name}
+                  </span>
+                  {tech.reason && (
+                    <span className="text-muted-foreground leading-relaxed">
+                      {tech.reason}
+                    </span>
+                  )}
+                </div>
               ))}
             </div>
           </div>
@@ -372,7 +340,12 @@ export function ProjectsSection() {
                       className="object-cover object-top"
                     />
                   ) : project.title === "EPUB 마이그레이션 툴" ? (
-                    <EpubThumbnail showFeatures={false} />
+                    <Image
+                      src="/epub_thumbnail.svg"
+                      alt="EPUB 마이그레이션 툴 프로세스"
+                      fill
+                      className="object-cover"
+                    />
                   ) : (
                     <>
                       <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-primary/10 to-transparent" />
@@ -398,12 +371,12 @@ export function ProjectsSection() {
 
                   {/* Tech Stack */}
                   <div className="flex flex-wrap gap-2">
-                    {project.tech.slice(0, 3).map((tech) => (
+                    {(project.tech as TechItem[]).slice(0, 3).map((tech) => (
                       <span
-                        key={tech}
+                        key={tech.name}
                         className="px-2 py-1 text-xs rounded-md bg-secondary text-muted-foreground"
                       >
-                        {tech}
+                        {tech.name}
                       </span>
                     ))}
                     {project.tech.length > 3 && (

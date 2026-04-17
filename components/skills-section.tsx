@@ -3,18 +3,51 @@
 import { useEffect, useRef, useState } from "react"
 
 const featuredSkills = [
-  { name: "JavaScript", desc: "메인 언어 · 전 프로젝트 활용", badge: "JS", level: 3 },
-  { name: "Python",     desc: "자동화 툴 · 봇 · 서버 개발",  badge: "PY", level: 3 },
-  { name: "React",      desc: "P-Log 프론트엔드 리드",        badge: "RE", level: 2 },
-  { name: "HTML / CSS", desc: "마크업 · 스타일링 전반",       badge: "WB", level: 3 },
+  {
+    name: "JavaScript (ES6+)",
+    desc: "비동기 처리(Promise/async-await), 모듈 시스템 활용",
+    badge: "JS",
+    level: 3,
+  },
+  {
+    name: "Python",
+    desc: "파일 파싱, 정규식 처리, 자동화 스크립트 작성",
+    badge: "PY",
+    level: 3,
+  },
+  {
+    name: "React",
+    desc: "함수형 컴포넌트 기반 UI 구성, Hook 활용, 에디터 라이브러리 연동",
+    badge: "RE",
+    level: 2,
+  },
+  {
+    name: "HTML5 / CSS3",
+    desc: "시맨틱 마크업, 반응형 레이아웃 구현",
+    badge: "WB",
+    level: 3,
+  },
 ]
 
-const otherSkills: Record<string, string[]> = {
-  "프론트엔드":  ["Tailwind CSS", "TipTap", "Swiper.js", "Chart.js", "Vite"],
-  "백엔드":      ["Flask"],
-  "자동화·배포": ["GitHub Actions", "PyInstaller", "Android ADB"],
-  "AI·도구":     ["Groq API (LLaMA)"],
-  "협업":        ["Git"],
+const otherSkills: Record<string, { name: string; badge: string }[]> = {
+  "프론트엔드": [
+    { name: "Tailwind CSS",                badge: "TW" },
+    { name: "Vite",                        badge: "VT" },
+  ],
+  "백엔드": [
+    { name: "Flask",                       badge: "FL" },
+  ],
+  "자동화·도구": [
+    { name: "GitHub Actions",             badge: "GA" },
+    { name: "PyInstaller",                badge: "PI" },
+  ],
+  "AI·도구": [
+    { name: "Claude / Cursor / v0 / Groq", badge: "AI" },
+  ],
+  "협업": [
+    { name: "Git",                         badge: "GT" },
+    { name: "Confluence",                  badge: "CF" },
+  ],
 }
 
 function LevelDots({
@@ -81,7 +114,7 @@ export function SkillsSection() {
         </div>
 
         {/* Featured Skills */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
           {featuredSkills.map((skill, index) => (
             <div
               key={skill.name}
@@ -90,7 +123,6 @@ export function SkillsSection() {
               }`}
               style={{ transitionDelay: `${100 + index * 80}ms` }}
             >
-              {/* Badge + Dots */}
               <div className="flex items-start justify-between mb-4">
                 <div className="w-9 h-9 rounded-lg bg-primary/15 flex items-center justify-center group-hover:bg-primary/25 transition-colors">
                   <span className="text-[11px] font-bold text-primary">{skill.badge}</span>
@@ -109,7 +141,7 @@ export function SkillsSection() {
 
         {/* Other Skills by Category */}
         <div className="space-y-5">
-          {Object.entries(otherSkills).map(([category, techs], catIndex) => (
+          {Object.entries(otherSkills).map(([category, items], catIndex) => (
             <div
               key={category}
               className={`transition-all duration-700 ${
@@ -117,20 +149,28 @@ export function SkillsSection() {
               }`}
               style={{ transitionDelay: `${480 + catIndex * 80}ms` }}
             >
+              {/* Category Header */}
               <div className="flex items-center gap-3 mb-2.5">
                 <span className="text-xs font-medium text-muted-foreground tracking-wide shrink-0">
                   {category}
                 </span>
                 <div className="flex-1 h-px bg-border" />
               </div>
-              <div className="flex flex-wrap gap-2">
-                {techs.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-3 py-1.5 text-xs rounded-lg bg-secondary/30 border border-border text-muted-foreground hover:text-foreground hover:border-primary/30 transition-colors"
+
+              {/* Skill Cards */}
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-2.5">
+                {items.map((item) => (
+                  <div
+                    key={item.name}
+                    className="p-3.5 rounded-xl bg-secondary/20 border border-border hover:border-primary/40 transition-all group flex items-center gap-2.5"
                   >
-                    {tech}
-                  </span>
+                    <div className="w-7 h-7 rounded-md bg-primary/15 flex items-center justify-center shrink-0 group-hover:bg-primary/25 transition-colors">
+                      <span className="text-[9px] font-bold text-primary">{item.badge}</span>
+                    </div>
+                    <p className="text-xs font-semibold text-foreground group-hover:text-primary transition-colors leading-snug">
+                      {item.name}
+                    </p>
+                  </div>
                 ))}
               </div>
             </div>
